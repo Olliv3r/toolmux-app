@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid sobre">
+  <div class="container">
+    <h2 class="text-center display-3 mb-3">Sobre</h2>
+    <p class="lead text-center">
+      Toolmux é uma ferramenta que ajuda você a instalar várias ferramentas de testes de penetração e ferramentas de hacking no sistema Android com facilidade.
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid transferencia">
+  <div class="container">
+    <h2 class="text-center display-4">Transferência</h2>
+    <div class="text-center">
+      <p class="lead">Toolmux instalador de ferramentas para o termux emulador<br><br>
+      <a href="https://github.com/Olliv3r/toolmux" class="btn btn-primary mb-3" role='button' target="_blank">Download</a>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid comunidade">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="display-4">Comumidade</h2>
+      <p class="lead">Participe da comunidade e publique as suas sugestôes<br><br>
+      <a href="{{ url_for('auth.registrar') }}" class="btn btn-outline-primary mb-3" role="button">Registre-se</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

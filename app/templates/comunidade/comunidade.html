@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
+<div class="container mt-5">
+  <h2>{{ title }}</h2>
+  <form action="" method="post">
+    {{ render_form(form) }}
+  </form>
+  
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+    <h6 class="border-bottom pb-2 mb-0">Atualizaçôes recentes:</h6>
+    {% for post in posts %}
+    <div class="d-flex text-body-secondary pt-3">
+      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+      <p class="pb-3 mb-0 small lh-sm border-bottom">
+        <span class="d-flex justify-content-between">
+          <strong class="d-block text-gray-dark">{{ post.author.name }}</strong>
+          <strong>{{ moment(post.created).fromNow() }}</strong>
+        </span><br>
+        {{ post.body }} <br><br>
+        <a href="#">Editar</a>
+        <a href="#">Apagar</a>
+      </p>
+    </div>
+    {% endfor %}
+    <nav aria-label="Page" class="mt-4">
+      <ul class="pagination justify-content-around">
+        <li class="previous{% if not prev_url %} disabled {% endif %}">
+          <a class="page-link" href="{{ prev_url or '#' }}"><span> &larr;</span> recentes</a>
+        </li>
+        <li class="next{% if not next_url %} disabled {% endif %}">
+          <a class="page-link" href="{{ next_url or '#' }}">Antigas <span>&rarr;</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

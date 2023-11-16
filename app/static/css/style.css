@@ -1,0 +1,19 @@
+.sobre {
+  background-color: #F9FAFF;
+  color: #000;
+}
+.transferencia{
+  background-color: #253992;
+  color: #fff;
+}
+.comunidade {
+  background-color: #F9FAFF;
+  color: #000;
+}
+.sobre,
+.transferencia, 
+.comunidade {
+  border-radius: 0rem;
+  margin-bottom: 0rem;
+  padding: 60px 20px 20px;
+}

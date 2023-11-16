@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+  <h1>{{ title }}</h1>
+  {% if tools %}
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Autor</th>
+        <th>Criado</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tool in tools %}
+      <tr>
+        <td>{{ tool.id }}</td>
+        <td>{{ tool.name }}</td>
+        <td>{{ tool.author }}</td>
+        <td>{{ tool.created }}</td>
+        <td>Apagar</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="alert alert-light text-center mt-3 mb-3">Nenhuma ferramenta encontrada</p>
+  <a href="{{ url_for('tool.cadastrar') }}" class="btn btn-outline-success">Cadastrar</a>
+  {% endif %}
+</div>
+{% endblock %}

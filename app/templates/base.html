@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+  {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    {% block styles %}
+      <!-- Bootstrap css -->
+      {{ bootstrap.load_css() }}
+    {% endblock %}
+    <title>{{ title }} - Tela</title>
+  {% endblock %}
+  </head>
+  <body>
+    <!-- Navigation -->
+    {% include 'navigation.html' %}
+    <!-- Message -->
+    {% include '_message.html' %}
+    <!-- Your page content -->
+    {% block content %}{% endblock %}
+    {% block scripts %}
+      <!-- Javascript optional -->
+      {{ bootstrap.load_js() }}
+      {{ moment.include_moment() }}
+    {% endblock %}
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </body>
+</html>

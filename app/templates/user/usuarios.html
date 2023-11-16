@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+  <h2>{{ title }}</h2>
+  {% if usuarios %}
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Criado</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for usuario in usuarios %}
+      <tr>
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.name }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.created }}</td>
+        <td>Apagar</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="alert alert-light text-center mt-3 mb-3">Nenhum usuário encontrada</p>
+  <a href="{{ url_for('auth.registrar') }}" class="btn btn-outline-success">Cadastrar</a>
+  {% endif %}
+</div>
+{% endblock %}
